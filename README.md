@@ -3,7 +3,9 @@ getObjectFitRect
 
 [![License][license-src]][license-href]
 
-This package provides a method to calculate then bounding rectangle of the image rendered with object-fit and object-position CSS rules. 
+This package provides a method to calculate then bounding rectangle of the image rendered with object-fit and object-position CSS rules.
+
+[Demo][demo-href]
 
 # Usage
 
@@ -38,3 +40,4 @@ npm test
 
 [license-src]: https://img.shields.io/badge/license-MIT-brightgreen.svg
 [license-href]: LICENSE.md
+[demo-href]: https://codesandbox.io/s/get-object-fit-rect-cmnn1?file=/src/App.js
