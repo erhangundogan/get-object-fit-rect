@@ -3,7 +3,7 @@ getObjectFitRect
 
 [![License][license-src]][license-href]
 
-This package provides a method to calculate then bounding rectangle of the image rendered with object-fit and object-position CSS rules.
+This package provides a method to calculate the bounding rectangle of the image rendered with "object-fit: cover" and object-position CSS rules.
 
 [Demo][demo-href]
 
