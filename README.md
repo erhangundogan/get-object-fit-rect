@@ -20,7 +20,7 @@ const { absolute, relative } = getObjectFitRect = ({
     vertical: 0.5
   } // object-position attribute (default: 50% 50% => 0.5 0.5) 
 });
-//expect(absolute).toEqual({ top: 0, left: 0, bottom: 0, right: 0 });
+//expect(absolute).toEqual({ top: 0, left: 0, bottom: 0, right: 0, width: 100, height: 100 });
 //expect(relative).toEqual({ top: '0px', left: '0px', height: '100%', width: '100%' });
 ```
 

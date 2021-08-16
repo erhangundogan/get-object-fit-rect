@@ -16,6 +16,8 @@ export interface AbsoluteResult {
   left: number;
   bottom: number;
   right: number;
+  width: number;
+  height: number;
 }
 export interface RelativeResult {
   top: string;
@@ -32,7 +34,7 @@ export interface GetObjectFitRectResultType {
  * @param intrinsicSize - width: image.naturalWidth, height: image.naturalHeight
  * @param renderedSize - width: image.width, height: image.height
  * @param alignment - horizontal, vertical (object-position: 50% 50%)
- * @returns {{absolute: {top: number, left: number, bottom, right}, relative: {top: string, left: string, width: string, height: string}}}
+ * @returns {{absolute: {top: number, left: number, bottom: number, right: number, width: number, height: number}, relative: {top: string, left: string, width: string, height: string}}}
  */
 export const getObjectFitRect = ({
   intrinsicSize,
@@ -59,11 +61,14 @@ export const getObjectFitRect = ({
       width: '100%'
     };
     const absoluteTop = (topPercent * intrinsicHeight) / 100;
+    const absoluteHeight = (visibleHeight * intrinsicHeight) / 100;
     const absolute = {
       top: absoluteTop,
       left: 0,
-      bottom: intrinsicHeight - (absoluteTop + (visibleHeight * intrinsicHeight) / 100),
-      right: 0
+      bottom: intrinsicHeight - (absoluteTop + absoluteHeight),
+      right: 0,
+      width: intrinsicWidth,
+      height: absoluteHeight
     };
     return {
       relative,
@@ -84,11 +89,14 @@ export const getObjectFitRect = ({
       width: `${visibleWidth}%`
     };
     const absoluteLeft = (leftPercent * intrinsicWidth) / 100;
+    const absoluteWidth = (visibleWidth * intrinsicWidth) / 100;
     const absolute = {
       top: 0,
       left: absoluteLeft,
       bottom: 0,
-      right: intrinsicWidth - (absoluteLeft + (visibleWidth * intrinsicWidth) / 100)
+      right: intrinsicWidth - (absoluteLeft + absoluteWidth),
+      width: absoluteWidth,
+      height: intrinsicHeight
     };
     return {
       relative,
@@ -107,7 +115,9 @@ export const getObjectFitRect = ({
     top: 0,
     left: 0,
     bottom: 0,
-    right: 0
+    right: 0,
+    width: intrinsicWidth,
+    height: intrinsicHeight
   };
   return {
     relative,

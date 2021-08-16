@@ -1,7 +1,7 @@
 {
   "name": "get-object-fit-rect",
-  "version": "1.0.0",
-  "description": "Get bounding rectangle of the image to be rendered with object-fit and object-position CSS",
+  "version": "1.1.0",
+  "description": "Get bounding rectangle of the image rendered with the 'object-fit: cover' CSS rule",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/erhangundogan/get-object-fit-rect.git"
