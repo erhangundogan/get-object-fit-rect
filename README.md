@@ -3,25 +3,39 @@ getObjectFitRect
 
 [![License][license-src]][license-href]
 
-This package provides a method to calculate the bounding rectangle of the image rendered with "object-fit: cover" and object-position CSS rules.
+This package provides a methods below:
+
+- Calculate bounding rectangle of the resized image having `object-fit` and also `object-position` CSS styles.
+- Get relative position on the resized image if it's visible.
+- Determine if the image's aspect-ratio has changed.
 
 [Demo][demo-href]
 
 # Usage
 
-```typescript
-import { getObjectFitRect } from 'get-object-fit-rect';
+Functions:
+- getObjectFitRect: Returns the absolute/relative rect information for the resized image.
+- getRelativePosition: Returns the relative position of the actual point or returns undefined if it's not visible. 
+- isResized: Returns true if the image is resized, and it's ratio has changed.
 
+```typescript
 const { absolute, relative } = getObjectFitRect = ({
   intrinsicSize, // image naturalWidth and image naturalHeight
   renderedSize, // expected image width and expected image height
   alignment = {
-    horizontal: 0.5,
-    vertical: 0.5
-  } // object-position attribute (default: 50% 50% => 0.5 0.5) 
+    horizontal: 0.5, // object-position x
+    vertical: 0.5 // object-position y
+  } 
 });
-//expect(absolute).toEqual({ top: 0, left: 0, bottom: 0, right: 0, width: 100, height: 100 });
-//expect(relative).toEqual({ top: '0px', left: '0px', height: '100%', width: '100%' });
+/*
+const absolute: AbsoluteResult = { top: 0, left: 35, bottom: 0, right: 35, width: 30, height: 100 };
+const relative: RelativeResult = { top: 0, left: '35%', height: '100%', width: '30%' }
+*/
+```
+
+```typescript
+const { x, y } = getRelativePosition({x: 45, y: 150}, absolute);
+// { x: '9.375%', y: '23.75%' }
 ```
 
 # Install
