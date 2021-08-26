@@ -1,0 +1,12 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: npm install
+  displayName: 'Installing dependencies'
+
+- script: npm test
+  displayName: 'Running tests'
