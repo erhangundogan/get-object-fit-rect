@@ -2,6 +2,7 @@ getObjectFitRect
 ================
 
 [![License][license-src]][license-href]
+[![Build Status][build-src]][build-href]
 
 This package provides a methods below:
 
@@ -34,13 +35,18 @@ const relative: RelativeResult = { top: 0, left: '35%', height: '100%', width: '
 ```
 
 ```typescript
-const { x, y } = getRelativePosition({x: 45, y: 150}, absolute);
-// { x: '9.375%', y: '23.75%' }
+const relativePoint = getRelativePosition({ x: 45, y: 150 }, absolute);
+// relativePoint = { x: '9.375%', y: '23.75%' }
 ```
 
 # Install
 ```bash
 npm install
+```
+
+# Tests
+```bash
+npm test
 ```
 
 # Development
@@ -55,3 +61,5 @@ npm test
 [license-src]: https://img.shields.io/badge/license-MIT-brightgreen.svg
 [license-href]: LICENSE.md
 [demo-href]: https://codesandbox.io/s/get-object-fit-rect-cmnn1?file=/src/App.js
+[build-src]: https://dev.azure.com/erhangundogan/get-object-fit-rect/_apis/build/status/erhangundogan.get-object-fit-rect?branchName=main
+[build-href]: https://dev.azure.com/erhangundogan/get-object-fit-rect/_build/latest?definitionId=1&branchName=main
