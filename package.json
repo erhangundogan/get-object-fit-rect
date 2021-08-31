@@ -1,7 +1,7 @@
 {
   "name": "get-object-fit-rect",
-  "version": "2.0.1",
-  "description": "Image object-fit and object-position utilities",
+  "version": "2.1.0",
+  "description": "Replaced elements object-fit and object-position utilities",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/erhangundogan/get-object-fit-rect.git"
@@ -33,7 +33,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "lint": "eslint \"src/**/*.{js,ts}\"",
-    "test": "rimraf coverage && jest",
+    "test": "rimraf coverage && jest --watch",
     "build": "npm run clean && NODE_ENV=development rollup -c rollup.config.js",
     "build:prod": "npm run clean && NODE_ENV=production rollup -c rollup.config.js",
     "watch": "npm run clean && NODE_ENV=development rollup -cw rollup.config.js",
@@ -69,7 +69,7 @@
     "preset": "ts-jest",
     "testEnvironment": "node",
     "coverageDirectory": "../coverage",
-    "collectCoverage": true,
+    "collectCoverage": false,
     "collectCoverageFrom": [
       "*.ts"
     ],

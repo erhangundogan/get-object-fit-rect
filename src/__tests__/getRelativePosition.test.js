@@ -1,27 +1,82 @@
 const { getRelativePosition } = require('../getRelativePosition');
 
 describe('getRelativePosition', () => {
-  const objectFitRect = {
-    bottom: 112,
-    height: 160,
-    left: 0,
-    right: 0,
-    top: 112,
-    width: 480
-  };
+  const intrinsicSize = { width: 320, height: 480 };
+  const renderedSize = { width: 250, height: 200 };
 
-  test('returns relative position when the point is inside the rect', () => {
+  describe('object-fit: cover', () => {
+    test('returns relative position when the point is inside the rect', () => {
+      const position = {
+        x: 230,
+        y: 152
+      };
+      expect(getRelativePosition({ position, intrinsicSize, renderedSize })).toEqual({
+        x: '71.875%',
+        y: '15.625%'
+      });
+    });
+    test('returns undefined when the point is out of the rect', () => {
+      const position = {
+        x: 200,
+        y: 80
+      };
+      expect(getRelativePosition({ position, intrinsicSize, renderedSize })).toEqual(undefined);
+    });
+  });
+
+  describe('object-fit: contain', () => {
     const position = {
-      x: 45,
+      x: 232,
       y: 150
     };
-    expect(getRelativePosition(position, objectFitRect)).toEqual({ x: '9.375%', y: '23.75%' });
+    test('returns relative position by percent', () => {
+      expect(
+        getRelativePosition({ position, intrinsicSize, renderedSize, objectFitType: 'contain' })
+      ).toEqual({
+        x: '62%',
+        y: '31.25%'
+      });
+    });
+    test('returns relative position by pixel', () => {
+      expect(
+        getRelativePosition({
+          position,
+          intrinsicSize,
+          renderedSize,
+          objectFitType: 'contain',
+          percentResult: false
+        })
+      ).toEqual({
+        x: 155,
+        y: 62.5
+      });
+    });
   });
-  test('returns undefined when the point is out of the rect', () => {
+
+  describe('object-fit: fill', () => {
     const position = {
-      x: 105,
-      y: 100
+      x: 232,
+      y: 150
     };
-    expect(getRelativePosition(position, objectFitRect)).toEqual(undefined);
+    test('returns relative position by percent', () => {
+      expect(getRelativePosition({ position, intrinsicSize, renderedSize, objectFitType: 'fill' })).toEqual({
+        x: '72.5%',
+        y: '31.25%'
+      });
+    });
+    test('returns relative position by pixel', () => {
+      expect(
+        getRelativePosition({
+          position,
+          intrinsicSize,
+          renderedSize,
+          objectFitType: 'fill',
+          percentResult: false
+        })
+      ).toEqual({
+        x: 181.25,
+        y: 62.5
+      });
+    });
   });
 });
