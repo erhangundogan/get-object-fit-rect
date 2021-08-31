@@ -1,6 +1,6 @@
 {
   "name": "get-object-fit-rect",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Replaced elements object-fit and object-position utilities",
   "repository": {
     "type": "git",
@@ -33,7 +33,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "lint": "eslint \"src/**/*.{js,ts}\"",
-    "test": "rimraf coverage && jest --watch",
+    "test": "rimraf coverage && jest",
     "build": "npm run clean && NODE_ENV=development rollup -c rollup.config.js",
     "build:prod": "npm run clean && NODE_ENV=production rollup -c rollup.config.js",
     "watch": "npm run clean && NODE_ENV=development rollup -cw rollup.config.js",
@@ -46,30 +46,30 @@
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@rollup/plugin-replace": "^3.0.0",
     "@testing-library/jest-dom": "^5.14.1",
-    "@types/jest": "^26.0.24",
-    "@typescript-eslint/eslint-plugin": "^4.29.2",
-    "@typescript-eslint/parser": "^4.29.2",
+    "@types/jest": "^27.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "@typescript-eslint/parser": "^4.30.0",
     "@wessberg/rollup-plugin-ts": "^1.3.11",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^27.0.6",
+    "babel-jest": "^27.1.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jest": "^24.4.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "jest": "^27.0.6",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.1.0",
     "prettier": "^2.3.2",
-    "rollup": "^2.56.2",
+    "rollup": "^2.56.3",
     "rollup-plugin-filesize": "^9.1.1",
     "rollup-plugin-terser": "^7.0.2",
-    "ts-jest": "^27.0.3",
+    "ts-jest": "^27.0.5",
     "tslib": "^2.3.1",
-    "typescript": "^4.3.5"
+    "typescript": "^4.4.2"
   },
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
     "coverageDirectory": "../coverage",
-    "collectCoverage": false,
+    "collectCoverage": true,
     "collectCoverageFrom": [
       "*.ts"
     ],
