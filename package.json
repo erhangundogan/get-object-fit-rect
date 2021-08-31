@@ -1,6 +1,6 @@
 {
   "name": "get-object-fit-rect",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Replaced elements object-fit and object-position utilities",
   "repository": {
     "type": "git",
