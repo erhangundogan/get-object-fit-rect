@@ -21,14 +21,14 @@ export interface GetRelativePositionProps {
   percentResult?: boolean;
 }
 
-export const getRelativePosition = ({
+export function getRelativePosition({
   position,
   intrinsicSize,
   renderedSize,
   alignment = { horizontal: 0.5, vertical: 0.5 },
   objectFitType = 'cover',
   percentResult = true
-}: GetRelativePositionProps): PixelPosition | PercentPosition | undefined => {
+}: GetRelativePositionProps): PixelPosition | PercentPosition | undefined {
   if (!position || !intrinsicSize || !renderedSize) {
     return;
   }
@@ -131,4 +131,4 @@ export const getRelativePosition = ({
       y: `${percentY}%`
     };
   }
-};
+}

@@ -1,6 +1,6 @@
 export type IsResizedResult = boolean | undefined;
 
-export const isResized = (image: HTMLImageElement): IsResizedResult => {
+export function isResized(image: HTMLImageElement): IsResizedResult {
   if (!image) {
     return;
   }
@@ -10,4 +10,4 @@ export const isResized = (image: HTMLImageElement): IsResizedResult => {
     const currentAspectRatio = width / height;
     return intrinsicAspectRatio !== currentAspectRatio;
   }
-};
+}

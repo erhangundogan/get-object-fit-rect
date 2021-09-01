@@ -34,12 +34,9 @@ export default {
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
       }
     }),
-    ts({
-      tsconfig: production ? 'tsconfig.prod.json' : 'tsconfig.json'
-    }),
+    ts(),
     commonjs(),
     resolve({
-      browser: true,
       preferBuiltins: true
     }),
     production ? terser() : null,

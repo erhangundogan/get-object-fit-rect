@@ -39,11 +39,11 @@ export interface GetObjectFitRectResult {
  *   relative: {top: string, left: string, width: string, height: string}
  * }}
  */
-export const getObjectFitRect = ({
+export function getObjectFitRect({
   intrinsicSize,
   renderedSize,
   alignment = { horizontal: 0.5, vertical: 0.5 }
-}: GetObjectFitRectProps): GetObjectFitRectResult => {
+}: GetObjectFitRectProps): GetObjectFitRectResult {
   const { width: intrinsicWidth, height: intrinsicHeight } = intrinsicSize;
   const { width: renderedWidth, height: renderedHeight } = renderedSize;
   const { horizontal: horizontalAlignment, vertical: verticalAlignment } = alignment;
@@ -126,4 +126,4 @@ export const getObjectFitRect = ({
     relative,
     absolute
   };
-};
+}
