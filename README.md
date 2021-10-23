@@ -4,7 +4,7 @@ getObjectFitRect
 [![License][license-src]][license-href]
 [![Build Status][build-src]][build-href]
 
-This package provides a methods below:
+This package provides methods below:
 
 - Calculate bounding rectangle of the resized image having `object-fit` and `object-position` CSS styles.
 - Get relative position on the resized image if it's visible.
